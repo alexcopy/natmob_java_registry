@@ -327,8 +327,8 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.10</version>
                 <configuration>
-                    <imageName>jhipster/jhipster-registry:dev</imageName>
-                    <dockerDirectory>src/main/docker/dev</dockerDirectory>
+                    <imageName>jhipster/jhipster-registry:v2.5.8</imageName>
+                    <dockerDirectory>src/main/docker</dockerDirectory>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
