@@ -81,8 +81,8 @@ spring:
 
 security:
     user:
-        name: admin
-        password: admin
+        name: redcopy
+        password: redcopy
         role: USER,ADMIN
 
 server:
