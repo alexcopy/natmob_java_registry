@@ -4,6 +4,6 @@
     angular
         .module('JHipsterRegistryApp')
         .constant('VERSION', "2.5.8")
-        .constant('DEBUG_INFO_ENABLED', true)
+        .constant('DEBUG_INFO_ENABLED', false)
 ;
 })();
