@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/alexcopy/natmob_java_registry.svg?branch=master)](https://travis-ci.org/alexcopy/natmob_java_registry)
+
 # Registry
 
 
