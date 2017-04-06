@@ -25,8 +25,8 @@ node {
             }
         }
 
-        stage('package and deploy') {
-            sh "./mvnw com.heroku.sdk:heroku-maven-plugin:1.1.1:deploy-war -DskipTests -Pprod -Dheroku.appName="
+        stage('packaging') {
+            sh "./mvnw package -Pprod -DskipTests"
             archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
         }
 
@@ -34,6 +34,19 @@ node {
             withSonarQubeEnv('Sonar') {
                 sh "./mvnw sonar:sonar"
             }
+        }
+    }
+
+    def dockerImage
+    stage('build docker') {
+        sh "cp -R src/main/docker target/"
+        sh "cp target/*.war target/docker/"
+        dockerImage = docker.build('jhipsterregistry', 'target/docker')
+    }
+
+    stage('publish docker') {
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-login') {
+            dockerImage.push 'latest'
         }
     }
 }
